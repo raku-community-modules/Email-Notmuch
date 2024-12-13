@@ -1,4 +1,4 @@
-name: Linux
+name: Windows
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-latest
+          - windows-latest
         raku-version:
           - 'latest'
     runs-on: ${{ matrix.os }}

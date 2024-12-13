@@ -1,4 +1,6 @@
 Revision history for Email::Notmuch
 
 {{$NEXT}}
+
+0.7  2024-12-13T17:28:14+01:00
     - Initial version as a Raku Community module

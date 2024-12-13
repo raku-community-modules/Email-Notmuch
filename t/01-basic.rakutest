@@ -1,0 +1,7 @@
+use Test;
+
+plan 1;
+
+use-ok 'Email::Notmuch';
+
+# vim: expandtab shiftwidth=4
