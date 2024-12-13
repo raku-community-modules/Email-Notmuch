@@ -26,5 +26,7 @@ jobs:
         run: brew install gd
       - name: Make GD reachable
         run: raku -e 'symlink "/opt/homebrew/lib/libgd.3.dylib".IO, $*EXECUTABLE.parent.sibling("lib/libgd.3.dylib")'
+      - name: Install Dependencies
+        run: zef install --/test --test-depends --deps-only .
       - name: Run Special Tests
         run: raku run-tests -i
