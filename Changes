@@ -1,0 +1,4 @@
+Revision history for Email::Notmuch
+
+{{$NEXT}}
+    - Initial version as a Raku Community module

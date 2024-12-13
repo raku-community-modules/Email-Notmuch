@@ -1,9 +1,7 @@
-use v6;
+use Test;
 
 use Email::Notmuch;
 use File::Temp;
-
-use Test;
 
 plan 21;
 
@@ -80,10 +78,11 @@ ok $thread_from_query.get_thread_id() eq $message.get_thread_id();
 $threads.destroy();
 $message.destroy();
 
-
 $query = Query.new($database, 'thread:this_thread_doesnt_exist');
 $threads = $query.search_threads();
 ok $threads.all() == 0, 'search_threads return 0 thread';
 $threads.destroy();
 
 ok $database.close() == NOTMUCH_STATUS_SUCCESS;
+
+# vim: expandtab shiftwidth=4

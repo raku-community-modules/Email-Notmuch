@@ -1,5 +1,3 @@
-use v6;
-
 use nqp;
 use NativeCall;
 
@@ -388,3 +386,49 @@ class Query is repr('CPointer') {
 
 }
 
+=begin pod
+
+=head1 NAME
+
+Email::Notmuch - Raku binding for NotmuchMail email database
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+
+use Email::Notmuch;
+
+my $database = Database.new('/home/goneri/Maildir');
+my $query = Query.new($database, 'tag:todo');
+my $messages = $query.search_messages();
+for $messages.all() -> $message {
+    say $message.get_header('from');
+    $message.add_tag('seen');
+    say $message.get_tags().all();
+}
+
+=end code
+
+=head1 DESCRIPTION
+
+Notmuchmail ( https://notmuchmail.org/ ) is a mail indexation tool.
+This Raku module provides binding for a limited subset of its API.
+
+The library has been tested with Notmuch 0.25 and greater, it does
+not work anymore with the older versions.
+
+=head1 AUTHOR
+
+Gonéri Le Bouder
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2015 - 2018 Gonéri Le Bouder
+
+Copyright 2024 Raku Community
+
+The project uses the GPLv3 or greater.
+
+=end pod
+
+# vim: expandtab shiftwidth=4

@@ -1,25 +1,44 @@
-# Perl6 binding for Notmuchmail
+[![Actions Status](https://github.com/raku-community-modules/Email-Notmuch/actions/workflows/linux.yml/badge.svg)](https://github.com/raku-community-modules/Email-Notmuch/actions) [![Actions Status](https://github.com/raku-community-modules/Email-Notmuch/actions/workflows/macos.yml/badge.svg)](https://github.com/raku-community-modules/Email-Notmuch/actions) [![Actions Status](https://github.com/raku-community-modules/Email-Notmuch/actions/workflows/windowst.yml/badge.svg)](https://github.com/raku-community-modules/Email-Notmuch/actions)
 
-![Build Status](https://travis-ci.org/goneri/p6-Email-Notmuch.svg?branch=master)
+NAME
+====
 
-Notmuchmail ( https://notmuchmail.org/ ) is a mail indexation tool. This Perl6 module provides
-binding for a limited subset of its API.
+Email::Notmuch - Raku binding for NotmuchMail email database
 
-The library has been tested with Notmuch 0.25 and greater, it does not work anymore with the older version.
+SYNOPSIS
+========
 
-## Example
+```raku
+use Email::Notmuch;
 
-    use v6;
-    use Email::Notmuch;
-    my $database = Database.new('/home/goneri/Maildir');
-    my $query = Query.new($database, 'tag:todo');
-    my $messages = $query.search_messages();
-    for $messages.all() -> $message {
-        say $message.get_header('from');
-        $message.add_tag('seen');
-        say $message.get_tags().all();
-    }
+my $database = Database.new('/home/goneri/Maildir');
+my $query = Query.new($database, 'tag:todo');
+my $messages = $query.search_messages();
+for $messages.all() -> $message {
+    say $message.get_header('from');
+    $message.add_tag('seen');
+    say $message.get_tags().all();
+}
+```
 
-## License
+DESCRIPTION
+===========
 
-The project uses the GPLv3 or greater and is Copyright 2015-2016 Gonéri Le Bouder <goneri@lebouder.net>
+Notmuchmail ( https://notmuchmail.org/ ) is a mail indexation tool. This Raku module provides binding for a limited subset of its API.
+
+The library has been tested with Notmuch 0.25 and greater, it does not work anymore with the older versions.
+
+AUTHOR
+======
+
+Gonéri Le Bouder
+
+COPYRIGHT AND LICENSE
+=====================
+
+Copyright 2015 - 2018 Gonéri Le Bouder
+
+Copyright 2024 Raku Community
+
+The project uses the GPLv3 or greater.
+

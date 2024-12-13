@@ -1,14 +1,29 @@
 {
-  "perl"        : "6.c",
-  "name"        : "Email::Notmuch",
-  "license"     : "GPL-3.0",
-  "version"     : "0.6",
-  "description" : "lib NotmuchMail binding",
-  "provides"    : {
-    "Email::Notmuch": "lib/Email/Notmuch.pm6"
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Gonéri Le Bouder"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Raku binding for NotmuchMail email database",
+  "license": "GPL-3.0",
+  "name": "Email::Notmuch",
+  "perl": "6.c",
+  "provides": {
+    "Email::Notmuch": "lib/Email/Notmuch.rakumod"
   },
-  "authors"     : ["Gonéri Le Bouder"],
-  "depends"     : [ ],
-  "test-depends": [ "File::Temp", "Test" ],
-  "source-url"  : "git://github.com/goneri/p6-Email-Notmuch.git"
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/Email-Notmuch.git",
+  "tags": [
+    "EMAIL",
+    "DATABASE",
+    "NOTMUCH"
+  ],
+  "test-depends": [
+    "File::Temp"
+  ],
+  "version": "0.6"
 }
