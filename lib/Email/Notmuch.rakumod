@@ -20,18 +20,18 @@ constant NOTMUCH_STATUS_PATH_ERROR = 13;
 class Tags is repr('CPointer') {
     sub notmuch_tags_valid(Tags)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_tags_get(Tags)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_tags_destroy(Tags)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_tags_move_to_next(Tags)
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
     method all() {
@@ -62,35 +62,35 @@ class Tags is repr('CPointer') {
 class Message is repr('CPointer') {
     sub notmuch_message_destroy(Message)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_get_filename(Message)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_get_header(Message, Str $header)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_get_tags(Message)
         returns Tags
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_add_tag(Message, Str $tag)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_remove_tag(Message, Str $tag)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_get_message_id(Message)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_message_get_thread_id(Message)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
     method destroy() {
@@ -122,19 +122,19 @@ class Message is repr('CPointer') {
 class Thread is repr('CPointer') {
     sub notmuch_thread_destroy(Thread)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_thread_get_tags(Thread)
         returns Tags
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_thread_get_messages(Thread)
         returns Tags
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_thread_get_thread_id(Thread)
         returns Str
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
     method destroy() {
@@ -155,47 +155,47 @@ class Thread is repr('CPointer') {
 class Database is repr('CPointer') {
     sub notmuch_database_create_verbose(Str $path, CArray[long] $database, CArray[Str] $error_message)
         returns int32
-        is native('notmuch', v4)
+        is native('notmuch.5', v4)
         {*};
     sub notmuch_database_create(Str $path, CArray[long] $database)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_open_verbose(Str $path, int32 $mode, CArray[long] $database, CArray[Str] $error_message)
         returns int32
-        is native('notmuch', v4)
+        is native('notmuch.5', v4)
         {*};
     sub notmuch_database_open(Str $path, int32 $mode, CArray[long] $database)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_get_all_tags(Database)
         returns Tags
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_add_message(Database, Str $filename, CArray[long] $message)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_find_message(Database, Str $id, CArray[long] $message)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_find_message_by_filename(Database, Str $filename, CArray[long] $message)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_get_version(Database)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_close(Database)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_database_destroy(Database)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
     method create(Str $path) {
@@ -260,18 +260,18 @@ class Database is repr('CPointer') {
 class Messages is repr('CPointer') {
     sub notmuch_messages_valid(Messages)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_messages_get(Messages)
         returns Message
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_messages_destroy(Messages)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_messages_move_to_next(Messages)
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
     method all() {
@@ -303,18 +303,18 @@ class Messages is repr('CPointer') {
 class Threads is repr('CPointer') {
     sub notmuch_threads_valid(Threads)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_threads_get(Threads)
         returns Thread
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_threads_destroy(Threads)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_threads_move_to_next(Threads)
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
 
 
@@ -347,19 +347,19 @@ class Threads is repr('CPointer') {
 class Query is repr('CPointer') {
     sub notmuch_query_create(Database $database, Str $query_string)
         returns Query
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_query_destroy(Query)
         returns bool
-        is native('notmuch')
+        is native('notmuch.5')
         {*};
     sub notmuch_query_search_messages(Query, CArray[long] $threads)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
        {*};
     sub notmuch_query_search_threads(Query, CArray[long] $threads)
         returns int32
-        is native('notmuch')
+        is native('notmuch.5')
        {*};
 
     method new(Database $database, Str $query_string) {

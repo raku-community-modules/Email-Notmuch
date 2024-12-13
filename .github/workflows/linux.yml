@@ -24,7 +24,7 @@ jobs:
           raku-version: ${{ matrix.raku-version }}
       - name: Update apt-get
         run: sudo apt-get update -qq
-      - name: Install GD
+      - name: Install NotmuchMail
         run: sudo apt-get install -y notmuch
       - name: Install Dependencies
         run: zef install --/test --test-depends --deps-only .

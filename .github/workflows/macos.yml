@@ -22,10 +22,10 @@ jobs:
       - uses: Raku/setup-raku@v1
         with:
           raku-version: ${{ matrix.raku-version }}
-      - name: Install GD
-        run: brew install gd
-      - name: Make GD reachable
-        run: raku -e 'symlink "/opt/homebrew/lib/libgd.3.dylib".IO, $*EXECUTABLE.parent.sibling("lib/libgd.3.dylib")'
+      - name: Install NotmuchMail
+        run: brew install notmuch
+      - name: Make NotmuchMail reachable
+        run: raku -e 'symlink "/opt/homebrew/lib/libnotmuch.5.dylib".IO, $*EXECUTABLE.parent.sibling("lib/libnotmuch.5.dylib")'
       - name: Install Dependencies
         run: zef install --/test --test-depends --deps-only .
       - name: Run Special Tests
